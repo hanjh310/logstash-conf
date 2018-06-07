@@ -1,0 +1,82 @@
+{
+    "index_patterns": "aws-cloudwatch-*",
+    "settings": {
+        "index": {
+          "number_of_shards": "1",
+          "auto_expand_replicas": "0-1"
+        }
+      },
+    "mappings":{
+        "doc": {
+            "properties": {
+                "version": {
+                   "type": "integer"
+                },
+                "account_id": {
+                    "type": "text"
+                },
+                "interface_id": {
+                    "type": "text"
+                },
+                "source_ip": {
+                    "type": "ip"
+                },
+                "dest_ip": {
+                    "type": "ip"
+                },
+                "src_port": {
+                    "type": "integer"
+                },
+                "dest_port": {
+                    "type": "integer"
+                },
+                "ip_protocol": {
+                    "type": "keyword"
+                },
+                "packets": {
+                    "type": "integer"
+                },
+                "size": {
+                    "type": "integer"
+                },
+                "start_time": {
+                    "type": "date"
+                },
+                "end_time": {
+                    "type": "date"
+                },
+                "action": {
+                    "type": "keyword"
+                },
+                "log_status": {
+                    "type": "keyword"
+                },
+                "geoip": {
+                      "properties": {
+                        "city_name": {
+                          "ignore_above": 1024,
+                          "type": "keyword"
+                        },
+                        "continent_name": {
+                          "ignore_above": 1024,
+                          "type": "keyword"
+                        },
+                        "country_iso_code": {
+                          "ignore_above": 1024,
+                          "type": "keyword"
+                        },
+                        "location": {
+                          "type": "geo_point"
+                        },
+                        "region_name": {
+                          "ignore_above": 1024,
+                          "type": "keyword"
+                        }
+                    }
+                }
+            }
+        }        
+    }
+}    
+
+
